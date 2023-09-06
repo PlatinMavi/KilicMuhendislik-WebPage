@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kılıç Mühendislik</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .te{
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 3px;
+        }
+        .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        border-radius: 5px;
+        }
+
+        @keyframes twinkle {
+        0% {
+            transform: scale(1, 1);
+            background: rgba(255, 255, 255, 0);
+            animation-timing-function: linear;
+        }
+        40% {
+            transform: scale(0.8, 0.8);
+            background: rgba(255, 255, 255, 1);
+            animation-timing-function: ease-out;
+        }
+        80% {
+            background: rgba(255, 255, 255, 0);
+            transform: scale(1, 1);
+        }
+        100% {
+            background: rgba(255, 255, 255, 0);
+            transform: scale(1, 1);
+        }
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .containerB {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+            gap: 10px;
+        
+            > a {
+            flex: 0 0 300px;
+            border-radius: 0.5rem;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+            box-shadow: 1px 5px 15px #2b2b2b;
+            position: relative;
+            overflow: hidden;
+        
+            &:nth-of-type(1) {
+                background: url("/1.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(2) {
+                background: url("/2.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(3) {
+                background: url("/3.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(4) {
+                background: url("/4.png")
+                no-repeat 0% / cover;
+                
+            }
+        
+            .content {
+                font-size: 1.5rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                opacity: 0;
+                flex-direction: column;
+                height: 100%;
+                justify-content: flex-end;
+                background: rgb(2, 2, 46);
+                background: linear-gradient(
+                0deg,
+                rgba(2, 2, 46, 0.6755077030812324) 0%,
+                rgba(255, 255, 255, 0) 100%
+                );
+                transform: translatey(100%);
+                transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+                visibility: hidden;
+        
+                span {
+                display: block;
+                margin-top: 5px;
+                font-size: 1.2rem;
+                }
+            }
+        
+            &:hover {
+                flex: 0 0 250px;
+                box-shadow: 1px 3px 15px #707070;
+                transform: translatey(-30px);
+                
+            }
+        
+            &:hover .content {
+                opacity: 1;
+                transform: translatey(0%);
+                visibility: visible;
+            }
+            }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <main class="homescreen pb-12 h-full min-h-screen" style="background-color:rgb(5, 5, 5);">
+        <nav class=" z-50 flex justify-between sticky h-16 top-0 w-full" style="background-color:#ffffff10;">
+            <div class="opacity-100">
+                <img src="/logo.png" alt="" class="h-12 mt-2 ml-8">
+            </div>
+            <div class="flex flex-wrap gap-4 mr-4">
+                <a href="/">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">Ana Sayfa</h2>
+                </a>
+                <a href="/hakkimizda">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8 " >Hakkımızda</h2>
+                </a>
+                <a href="/hizmetlerimiz">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8" style="color: #ff2600;">Hizmetlerimiz</h2>
+                </a>
+                <a href="/iletisim">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">İletişim</h2>
+                </a>
+
+            </div>
+        </nav>
+
+        <div class="container mx-auto text-white">
+            <h2 class="text-center my-12 text-md font-thin te">
+                Şirketimiz elektrik proje hizmetleri, danışmanlık ve mühendislik hizmetleri, elektrik taahhüt hizmetleri alanlarında faaliyet göstermektedir.
+
+                Hizmet ve üründe kalite bilincini işin her aşamasında en yüksek seviyede tutarak etkin ve dengeli büyümeyi hedeflemektedir.
+
+                “C Sınıfı İş Güvenliği Uzmanlığı” belgesine sahip, İş Sağlığı ve Güvenliği konusunda duyarlı, çalışanlarının ve müşterilerinin iş güvenliğini sağlamak için gerekli tedbirleri almaktadır.
+            </h2>
+            <div class="w-full my-4 border p-4 rounded-xl" id="1" style="background-color:#ffffff10;">
+                <h2 class="text-4xl te italic underline">
+                    Elektrik Proje Hizmetleri
+                </h2>
+                <ul class="flex gap-12">
+                    <div>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Enerji Dağıtım Sistemleri Projeleri</li>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Orta Gerilim Sistemleri Projeleri</li>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Alçak Gerilim Sistemleri Projeleri</li>
+                    </div>
+                    <div>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Genel ve Özel Aydınlatma Projeleri</li>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Topraklama ve Yıldırımdan Korunma Sistemleri Projeleri</li>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Kablo Taşıma Sistemleri Projeleri</li>
+                    </div>
+                    <div>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Trafo Köşkleri, Enerji Dağıtım Merkezleri ve Saha Kabin Tasarımları </li>
+                        <li class="p-2 text-lg font-mono"><span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span>Proje Kontrollük Hizmetleri</li>
+                    </div>
+
+                </ul>
+            </div>
+
+            <div class="w-full my-4 border p-4 rounded-xl text-right" id="2" style="background-color:#ffffff10;">
+                <h2 class="text-4xl  te italic underline">
+                    Danışmanlık & Mühendislik Hizmetleri
+                </h2>
+                <ul class="flex gap-12">
+                    <div>
+                        <li class="p-2 text-lg font-mono">Yüksek Gerilim  İşletme Sorumluluğu<span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                        <li class="p-2 text-lg font-mono">Transformatör Test ve Raporlanması<span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                        <li class="p-2 text-lg font-mono">OG Anahtarlama Elemanı Test ve Raporlanması<span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                    </div>
+                    <div>
+                        <li class="p-2 text-lg font-mono">Elektrik Tesisatı Uygunluk Kontrolü ve Raporlanması <span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                        <li class="p-2 text-lg font-mono">Topraklama Ölçümleri ve Raporlanması <span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                        <li class="p-2 text-lg font-mono">Paratoner Ölçümleri ve Raporlanması <span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                    </div>
+                    <div>
+                        <li class="p-2 text-lg font-mono">Termal Görüntüleme Ölçümleri ve Raporlanması<span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                        <li class="p-2 text-lg font-mono">Aydınlık Şiddeti Ölçümleri ve Raporlanması<span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                        <li class="p-2 text-lg font-mono">Kaçak Akım Rölesi Test ve Raporlanması<span class="rounded-full p-1 m-2" style="background-color: #ff2600;"></span></li>
+                    </div>
+
+                </ul>
+            </div>
+
+            <div class="w-full mt-4 border p-4 rounded-xl " id="3" style="background-color:#ffffff10;">
+                <h2 class="text-4xl  te italic underline">
+                    Elektrik Taahhüt Hizmetleri
+                </h2>
+                <div class="flex flex-wrap mt-6 justify-center gap-12">
+                    
+                    <div class="max-w-sm border border-gray-200 text-center rounded-lg shadow ">
+                        <img class="rounded-t-lg h-64 w-full object-cover" src="/trafo.jpg" alt="" />
+                        <div class="p-5">
+                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 ">OG ve Trafo Merkezi Kurulumu</h2>
+                            <p class="mb-3 font-normal text-xl text-gray-300 ">Bina tipi trafo merkezleri <br>Beton köşk tipi trafo merkezleri <br>Direk tipi trafo merkezleri <br>Yeraltı köşk tipi trafo merkezleri</p>
+                        </div>
+                    </div>
+
+                    <div class="max-w-sm border border-gray-200 text-center rounded-lg shadow ">
+                        <img class="rounded-t-lg h-64 w-full object-cover" src="/pano.jpg" alt="" />
+                        <div class="p-5">
+                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 ">AG ve Pano Sistemleri</h2>
+                            <p class="mb-3 font-normal text-xl text-gray-300 ">Aydınlatma sistemleri <br>Ana panolar, tali panolar ve kompanzasyon panoları <br>Busbar sistemleri <br>Topraklama sistemleri <br>Paratoner ve yıldırımdan korunma sistemleri <br>Motor hız kontrol ve kuvvet otomasyon sistemleri</p>
+                        </div>
+                    </div>
+
+                    <div class="max-w-sm border border-gray-200 text-center rounded-lg shadow ">
+                        <img class="rounded-t-lg h-64 w-full object-cover" src="/modem.jpg" alt="" />
+                        <div class="p-5">
+                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 ">Zayıf Akım Sistemleri</h2>
+                            <p class="mb-3 text-xl font-normal text-gray-300 ">Yangın alarm sistemleri <br>Network sistemleri <br>CCTV sistemleri <br>Müzik yayın ve anons sistemleri <br>Merkezi uydu anten sistemleri <br>Görüntü diyafon sistemleri</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="w-full my-4 border p-4 rounded-xl text-right" id="4" style="background-color:#ffffff10;">
+                <h2 class="text-4xl  te italic underline">
+                    Enerji Kimlik Belgesi
+                </h2>
+                <p class="text-lg text-left">5627 Sayılı Enerji Verimliliği Kanunu ve buna bağlı olarak çıkartılan, Binalarda Enerji Performansı Yönetmeliğine göre; binalarda enerjinin ve enerji kaynaklarının etkin ve verimli kullanılmasını, enerji israfının önlenmesini ve çevrenin korunmasını sağlamak için asgari olarak;  binanın enerji ihtiyacı ve enerji tüketim sınıflandırması, sera gazı salımı seviyesi, yalıtım özellikleri ve ısıtma ve/veya soğutma sistemlerinin verimi ile ilgili bilgileri içeren belgedir.Sınıflandırmalar A’dan G’ye kadar yapılmıştır. A sınıfı en verimli seviyeyi belirtirken, G sınıfı en düşük verimli seviyeyi belirtmektedir. Binalarda bu sınıflandırmayı gösteren belgeye Enerji Kimlik Belgesi ya da kısaca EKB denilmektedir. </p>
+                <hr>
+                <p class="text-xl text-center" style="color: #ff2600;">Kılıç Mühendislik; Elektrik Mühendisleri Odasından tescilli, SMM yetkisine sahip bir kuruluş olarak, yeni binalarda Enerji Kimlik Belgesi çalışması yapmaya yetkili şirkettir. </p>
+                
+                <div class="flex text-left mt-2 flex-col items-center w-full border border-gray-200 rounded-lg shadow md:flex-row  " style="background-color:#ffffff10;">
+                    <img class="object-cover w-full rounded-t-lg md:w-96 md:h-auto md:rounded-none md:rounded-l-lg" src="/4.png" alt="">
+                    <div class="flex flex-col justify-between p-4 leading-normal">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100">EKB (Enerji Kimlik Belgesi) Almak İçin Gerekli Belgeler</h5>
+                        <p class="mb-3 font-normal text-gray-300">Mimari Proje <br>Isı Yalıtım Projesi <br>Elektrik Projesi <br>Mekanik Tesisat Projesi ( Isıtma, Soğutma, Havalandırma)</p>
+                    </div>
+                </div>
+
+                <p class="text-lg text-left">
+                    <pre class="text-center">
+<span class="text-xl font-bold" style="color: #ff2600;">Enerji Kimlik Belgesi Zorunludur</span>
+Kanun uyarınca Enerji Kimlik Belgesi alınması, aşağıda belirtilen yapıların dışında tüm binalarda zorunludur.
+Sanayi alanlarında üretim faaliyetleri yürütülen binalar, 
+Planlanan kullanım süresi iki yıldan az olan binalar,
+Toplam kullanım alanı 50 m² ’nin altında olan binalar,
+Seralar, atölyeler, münferit olarak inşa edilen ve ısıtılmasına, soğutulmasına gerek duyulmayan depo, ardiye, ahır, ağıl gibi binalar,
+Mücavir alan dışında kalan ve toplam inşaat alanı 1.000 m² ’den az olan binalar.
+
+Konutlar, ofisler, eğitim binaları, sağlık binaları, oteller, alışveriş ve ticaret merkezleri gibi bina tipleri için Enerji Kimlik Belgesi hazırlanabilir. 
+                    </pre>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        for (var i = 0; i < 100; i++) {
+          var star =
+            '<div class="star m-0" style="animation: twinkle ' +
+            (Math.random() * 5 + 5) +
+            's linear ' +
+            (Math.random() * 1 + 1) +
+            's infinite; top: ' +
+            Math.random() * $(window).height() +
+            'px; left: ' +
+            Math.random() * $(window).width() +
+            'px;"></div>';
+          $('.homescreen').append(star);
+        }
+        
+        </script>
+</body>
+</html>

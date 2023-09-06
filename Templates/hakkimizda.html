@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kılıç Mühendislik</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .te{
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 3px;
+        }
+        .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        border-radius: 5px;
+        }
+
+        @keyframes twinkle {
+        0% {
+            transform: scale(1, 1);
+            background: rgba(255, 255, 255, 0);
+            animation-timing-function: linear;
+        }
+        40% {
+            transform: scale(0.8, 0.8);
+            background: rgba(255, 255, 255, 1);
+            animation-timing-function: ease-out;
+        }
+        80% {
+            background: rgba(255, 255, 255, 0);
+            transform: scale(1, 1);
+        }
+        100% {
+            background: rgba(255, 255, 255, 0);
+            transform: scale(1, 1);
+        }
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .containerB {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+            gap: 10px;
+        
+            > a {
+            flex: 0 0 300px;
+            border-radius: 0.5rem;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+            box-shadow: 1px 5px 15px #2b2b2b;
+            position: relative;
+            overflow: hidden;
+        
+            &:nth-of-type(1) {
+                background: url("/1.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(2) {
+                background: url("/2.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(3) {
+                background: url("/3.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(4) {
+                background: url("/4.png")
+                no-repeat 0% / cover;
+                
+            }
+        
+            .content {
+                font-size: 1.5rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                opacity: 0;
+                flex-direction: column;
+                height: 100%;
+                justify-content: flex-end;
+                background: rgb(2, 2, 46);
+                background: linear-gradient(
+                0deg,
+                rgba(2, 2, 46, 0.6755077030812324) 0%,
+                rgba(255, 255, 255, 0) 100%
+                );
+                transform: translatey(100%);
+                transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+                visibility: hidden;
+        
+                span {
+                display: block;
+                margin-top: 5px;
+                font-size: 1.2rem;
+                }
+            }
+        
+            &:hover {
+                flex: 0 0 250px;
+                box-shadow: 1px 3px 15px #707070;
+                transform: translatey(-30px);
+                
+            }
+        
+            &:hover .content {
+                opacity: 1;
+                transform: translatey(0%);
+                visibility: visible;
+            }
+            }
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <main class="homescreen h-full min-h-screen" style="background-color:rgb(5, 5, 5);">
+        <nav class=" z-50 flex justify-between sticky h-16 top-0 w-full" style="background-color:#ffffff10;">
+            <div class="opacity-100">
+                <img src="/logo.png" alt="" class="h-12 mt-2 ml-8">
+            </div>
+            <div class="flex flex-wrap gap-4 mr-4">
+                <a href="/">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">Ana Sayfa</h2>
+                </a>
+                <a href="/hakkimizda">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 underline underline-offset-8 " style="color: #ff2600;">Hakkımızda</h2>
+                </a>
+                <a href="/hizmetlerimiz">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">Hizmetlerimiz</h2>
+                </a>
+                <a href="/iletisim">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">İletişim</h2>
+                </a>
+
+            </div>
+        </nav>
+
+        <section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+            <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Kılıç Mühendislik</h1>
+                <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Uygun maliyet ile yüksek verimliliği sağlayarak müşteri memnuniyetini ön planda tutan, etik kuralların ve sosyal sorumluluklarının bilincinde, genç ve dinamik bir firmadır.</p>
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                    <a href="/iletisim" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                        İletişim
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a> 
+                </div>
+            </div>
+        </section>
+
+        <div class="container justify-center flex flex-wrap gap-8 py-8 mx-auto text-white">
+            <div class="rounded-xl border p-4" style="background-color:#ffffff10;">
+                <p class="w-56 break-words">Elektrik ve Elektronik Mühendisi Nazif Kılıç  tarafından,  fabrikalarda 10 yıllık bakım ve yöneticilik tecrübesinin ardından Çorlu/Tekirdağ'da kurulmuştur.</p>
+            </div>
+            <div class="rounded-xl border p-4" style="background-color:#ffffff10;">
+                <p class="w-56 break-words">Şirketimiz elektrik proje hizmetleri,  danışmanlık ve mühendislik hizmetleri, elektrik taahhüt hizmetleri alanlarında faaliyet göstermektedir.</p>
+            </div>
+            <div class="rounded-xl border p-4" style="background-color:#ffffff10;">
+                <p class="w-56 break-words">Hizmet ve üründe kalite bilincini işin her aşamasında en yüksek seviyede tutarak etkin ve dengeli büyümeyi hedeflemektedir.</p>
+            </div>
+            <div class="rounded-xl border p-4" style="background-color:#ffffff10;">
+                <p class="w-56 break-words">“C Sınıfı İş Güvenliği  Uzmanlığı” belgesine  sahip,  İş Sağlığı ve Güvenliği konusunda duyarlı, çalışanlarının ve müşterilerinin iş  güvenliğini sağlamak için gerekli tedbirleri almaktadır.</p>
+            </div>
+            <div class="rounded-xl border p-4" style="background-color:#ffffff10;">
+                <p class="w-56 break-words">Uygun maliyet ile yüksek verimliliği sağlayarak müşteri memnuniyetini ön planda tutan, etik kuralların ve sosyal sorumluluklarının bilincinde, genç ve dinamik bir firmadır.</p>
+            </div>
+        </div>
+        
+    </main>
+
+    <script>
+        for (var i = 0; i < 100; i++) {
+          var star =
+            '<div class="star m-0" style="animation: twinkle ' +
+            (Math.random() * 5 + 5) +
+            's linear ' +
+            (Math.random() * 1 + 1) +
+            's infinite; top: ' +
+            Math.random() * $(window).height() +
+            'px; left: ' +
+            Math.random() * $(window).width() +
+            'px;"></div>';
+          $('.homescreen').append(star);
+        }
+        
+        </script>
+</body>
+</html>

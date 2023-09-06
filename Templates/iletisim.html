@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kılıç Mühendislik</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.1/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.1/dist/leaflet.markercluster.js"></script>
+    <style>
+        .te{
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 3px;
+        }
+        .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        border-radius: 5px;
+        }
+
+        @keyframes twinkle {
+        0% {
+            transform: scale(1, 1);
+            background: rgba(255, 255, 255, 0);
+            animation-timing-function: linear;
+        }
+        40% {
+            transform: scale(0.8, 0.8);
+            background: rgba(255, 255, 255, 1);
+            animation-timing-function: ease-out;
+        }
+        80% {
+            background: rgba(255, 255, 255, 0);
+            transform: scale(1, 1);
+        }
+        100% {
+            background: rgba(255, 255, 255, 0);
+            transform: scale(1, 1);
+        }
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .containerB {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+            gap: 10px;
+        
+            > a {
+            flex: 0 0 300px;
+            border-radius: 0.5rem;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+            box-shadow: 1px 5px 15px #2b2b2b;
+            position: relative;
+            overflow: hidden;
+        
+            &:nth-of-type(1) {
+                background: url("/1.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(2) {
+                background: url("/2.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(3) {
+                background: url("/3.jpg")
+                no-repeat 50% / cover;
+                
+            }
+            &:nth-of-type(4) {
+                background: url("/4.png")
+                no-repeat 0% / cover;
+                
+            }
+        
+            .content {
+                font-size: 1.5rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                opacity: 0;
+                flex-direction: column;
+                height: 100%;
+                justify-content: flex-end;
+                background: rgb(2, 2, 46);
+                background: linear-gradient(
+                0deg,
+                rgba(2, 2, 46, 0.6755077030812324) 0%,
+                rgba(255, 255, 255, 0) 100%
+                );
+                transform: translatey(100%);
+                transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+                visibility: hidden;
+        
+                span {
+                display: block;
+                margin-top: 5px;
+                font-size: 1.2rem;
+                }
+            }
+        
+            &:hover {
+                flex: 0 0 250px;
+                box-shadow: 1px 3px 15px #707070;
+                transform: translatey(-30px);
+                
+            }
+        
+            &:hover .content {
+                opacity: 1;
+                transform: translatey(0%);
+                visibility: visible;
+            }
+            }
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <main class="homescreen h-full min-h-screen" style="background-color:rgb(5, 5, 5);">
+        <nav class=" z-50 flex justify-between sticky h-16 top-0 w-full" style="background-color:#ffffff10;">
+            <div class="opacity-100">
+                <img src="/logo.png" alt="" class="h-12 mt-2 ml-8">
+            </div>
+            <div class="flex flex-wrap gap-4 mr-4">
+                <a href="/">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">Ana Sayfa</h2>
+                </a>
+                <a href="/hakkimizda">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8 " >Hakkımızda</h2>
+                </a>
+                <a href="/hizmetlerimiz">
+                    <h2 class="font-mono mr-2 text-2xl mt-4 text-white underline underline-offset-8">Hizmetlerimiz</h2>
+                </a>
+                <a href="/iletisim">
+                    <h2 class="font-mono mr-2 text-2xl mt-4  underline underline-offset-8" style="color: #ff2600;">İletişim</h2>
+                </a>
+
+            </div>
+        </nav>
+
+        <div id="map" class="h-96"></div>
+        <div class="container flex justify-between font-mono mt-12 mx-auto">
+            <div>
+                <h2 class="text-3xl" style="color: #ff2600;">Adres: <span class="text-white text-xl">Kazımiye Mah. Dadaloğlu 2. Sk. No: 12/A Çorlu / Tekirdağ</span></h2>
+                <h2 class="text-3xl" style="color: #ff2600;">E-posta: <span class="text-white text-xl">info@corlukilicmuhendislik.com</span></h2>
+                <h2 class="text-3xl" style="color: #ff2600;">Telefon: <span class="text-white text-xl">0 850 500 1 303 & 0 282 650 37 82  </span></h2>
+            </div>
+
+            <a href="mailto:info@corlukilicmuhendislik.com" class="p-4 h-16 font-bold rounded-xl text-xl text-white hover:scale-125 hover:ease-in duration-300" style="background-color: #ff2600;">> İletişime Geç <</a>
+        </div>
+    
+    </main>
+
+    <script>
+        for (var i = 0; i < 100; i++) {
+          var star =
+            '<div class="star m-0" style="animation: twinkle ' +
+            (Math.random() * 5 + 5) +
+            's linear ' +
+            (Math.random() * 1 + 1) +
+            's infinite; top: ' +
+            Math.random() * $(window).height() +
+            'px; left: ' +
+            Math.random() * $(window).width() +
+            'px;"></div>';
+          $('.homescreen').append(star);
+        }
+        
+    </script>
+    <script>
+        var map = L.map('map').setView([41.158004, 27.824510], 17);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        var marker = L.marker([41.158004, 27.824510]).addTo(map);
+        marker.bindPopup("Kılıç Mühendislik").openPopup();
+    </script>
+</body>
+</html>
