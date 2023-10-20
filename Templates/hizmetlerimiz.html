@@ -21,7 +21,7 @@
         position: absolute;
         width: 2px;
         height: 2px;
-        border-radius: 5px;
+        -radius: 5px;
         }
 
         @keyframes twinkle {
@@ -49,7 +49,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: -box;
         }
         
         .containerB {
@@ -61,7 +61,7 @@
         
             > a {
             flex: 0 0 300px;
-            border-radius: 0.5rem;
+            -radius: 0.5rem;
             transition: 0.5s ease-in-out;
             cursor: pointer;
             box-shadow: 1px 5px 15px #2b2b2b;
@@ -132,7 +132,7 @@
         }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden font-mono">
     <main class="homescreen pb-12 h-full min-h-screen" style="background-color:rgb(5, 5, 5);">
         <nav class=" z-50 flex justify-between sticky h-16 top-0 w-full" style="background-color:#ffffff10;">
             <div class="opacity-100">
@@ -163,8 +163,8 @@
 
                 “C Sınıfı İş Güvenliği Uzmanlığı” belgesine sahip, İş Sağlığı ve Güvenliği konusunda duyarlı, çalışanlarının ve müşterilerinin iş güvenliğini sağlamak için gerekli tedbirleri almaktadır.
             </h2>
-            <div class="w-full my-4 border p-4 rounded-xl" id="1" style="background-color:#ffffff10;">
-                <h2 class="text-4xl te italic underline">
+            <div class="w-full my-4  p-4 rounded-xl" id="1" style="background-color:#ffffff10;">
+                <h2 class="text-4xl font-thin te italic ">
                     Elektrik Proje Hizmetleri
                 </h2>
                 <ul class="flex gap-12">
@@ -186,8 +186,8 @@
                 </ul>
             </div>
 
-            <div class="w-full my-4 border p-4 rounded-xl text-right" id="2" style="background-color:#ffffff10;">
-                <h2 class="text-4xl  te italic underline">
+            <div class="w-full my-4  p-4 rounded-xl text-right" id="2" style="background-color:#ffffff10;">
+                <h2 class="text-4xl font-thin te italic ">
                     Danışmanlık & Mühendislik Hizmetleri
                 </h2>
                 <ul class="flex gap-12">
@@ -210,13 +210,13 @@
                 </ul>
             </div>
 
-            <div class="w-full mt-4 border p-4 rounded-xl " id="3" style="background-color:#ffffff10;">
-                <h2 class="text-4xl  te italic underline">
+            <div class="w-full mt-4  p-4 rounded-xl " id="3" style="background-color:#ffffff10;">
+                <h2 class="text-4xl font-thin te italic ">
                     Elektrik Taahhüt Hizmetleri
                 </h2>
                 <div class="flex flex-wrap mt-6 justify-center gap-12">
                     
-                    <div class="max-w-sm border border-gray-200 text-center rounded-lg shadow ">
+                    <div class="max-w-sm  -gray-200 text-center rounded-lg shadow ">
                         <img class="rounded-t-lg h-64 w-full object-cover" src="/trafo.jpg" alt="" />
                         <div class="p-5">
                             <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 ">OG ve Trafo Merkezi Kurulumu</h2>
@@ -224,7 +224,7 @@
                         </div>
                     </div>
 
-                    <div class="max-w-sm border border-gray-200 text-center rounded-lg shadow ">
+                    <div class="max-w-sm  -gray-200 text-center rounded-lg shadow ">
                         <img class="rounded-t-lg h-64 w-full object-cover" src="/pano.jpg" alt="" />
                         <div class="p-5">
                             <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 ">AG ve Pano Sistemleri</h2>
@@ -232,7 +232,7 @@
                         </div>
                     </div>
 
-                    <div class="max-w-sm border border-gray-200 text-center rounded-lg shadow ">
+                    <div class="max-w-sm  -gray-200 text-center rounded-lg shadow ">
                         <img class="rounded-t-lg h-64 w-full object-cover" src="/modem.jpg" alt="" />
                         <div class="p-5">
                             <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 ">Zayıf Akım Sistemleri</h2>
@@ -243,15 +243,15 @@
                 </div>
             </div>
 
-            <div class="w-full my-4 border p-4 rounded-xl text-right" id="4" style="background-color:#ffffff10;">
-                <h2 class="text-4xl  te italic underline">
+            <div class="w-full my-4  p-4 rounded-xl text-right" id="4" style="background-color:#ffffff10;">
+                <h2 class="text-4xl font-thin  te italic ">
                     Enerji Kimlik Belgesi
                 </h2>
                 <p class="text-lg text-left">5627 Sayılı Enerji Verimliliği Kanunu ve buna bağlı olarak çıkartılan, Binalarda Enerji Performansı Yönetmeliğine göre; binalarda enerjinin ve enerji kaynaklarının etkin ve verimli kullanılmasını, enerji israfının önlenmesini ve çevrenin korunmasını sağlamak için asgari olarak;  binanın enerji ihtiyacı ve enerji tüketim sınıflandırması, sera gazı salımı seviyesi, yalıtım özellikleri ve ısıtma ve/veya soğutma sistemlerinin verimi ile ilgili bilgileri içeren belgedir.Sınıflandırmalar A’dan G’ye kadar yapılmıştır. A sınıfı en verimli seviyeyi belirtirken, G sınıfı en düşük verimli seviyeyi belirtmektedir. Binalarda bu sınıflandırmayı gösteren belgeye Enerji Kimlik Belgesi ya da kısaca EKB denilmektedir. </p>
                 <hr>
                 <p class="text-xl text-center" style="color: #ff2600;">Kılıç Mühendislik; Elektrik Mühendisleri Odasından tescilli, SMM yetkisine sahip bir kuruluş olarak, yeni binalarda Enerji Kimlik Belgesi çalışması yapmaya yetkili şirkettir. </p>
                 
-                <div class="flex text-left mt-2 flex-col items-center w-full border border-gray-200 rounded-lg shadow md:flex-row  " style="background-color:#ffffff10;">
+                <div class="flex text-left mt-2 flex-col items-center w-full  -gray-200 rounded-lg shadow md:flex-row  " style="background-color:#ffffff10;">
                     <img class="object-cover w-full rounded-t-lg md:w-96 md:h-auto md:rounded-none md:rounded-l-lg" src="/4.png" alt="">
                     <div class="flex flex-col justify-between p-4 leading-normal">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100">EKB (Enerji Kimlik Belgesi) Almak İçin Gerekli Belgeler</h5>
